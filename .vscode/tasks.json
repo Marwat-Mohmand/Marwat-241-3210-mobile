@@ -1,0 +1,56 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build HomeWork3 (Desktop)",
+      "type": "process",
+      "command": "dotnet",
+      "args": [
+        "build",
+        "${workspaceFolder}/HomeWork3/prjPasswordCreator/prjPasswordCreator.Desktop.slnx",
+        "--configfile",
+        "${workspaceFolder}/HomeWork3/NuGet.Offline.Config",
+        "--nologo",
+        "-m:1",
+        "-nr:false",
+        "-p:UseSharedCompilation=false"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "MSBuildEnableWorkloadResolver": "false",
+          "DOTNET_CLI_WORKLOAD_UPDATE_NOTIFY_DISABLE": "true"
+        }
+      },
+      "problemMatcher": "$msCompile",
+      "group": "build"
+    },
+    {
+      "label": "Build HomeWork4 (Desktop)",
+      "type": "process",
+      "command": "dotnet",
+      "args": [
+        "build",
+        "${workspaceFolder}/HomeWork4/prjPasswordCreator/prjPasswordCreator.Desktop.slnx",
+        "--configfile",
+        "${workspaceFolder}/HomeWork4/NuGet.Offline.Config",
+        "--nologo",
+        "-m:1",
+        "-nr:false",
+        "-p:UseSharedCompilation=false"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "MSBuildEnableWorkloadResolver": "false",
+          "DOTNET_CLI_WORKLOAD_UPDATE_NOTIFY_DISABLE": "true"
+        }
+      },
+      "problemMatcher": "$msCompile",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+  ]
+}

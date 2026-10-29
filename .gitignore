@@ -4,3 +4,7 @@ Debug/
 Release/
 *.user
 *.suo
+**/bin/
+**/obj/
+.dotnet/
+artifacts/

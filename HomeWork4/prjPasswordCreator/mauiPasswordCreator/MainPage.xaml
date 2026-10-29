@@ -1,0 +1,45 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:PasswordCreator.Presentation;assembly=PasswordCreator.Presentation"
+             x:Class="PasswordCreator.Maui.MainPage" x:DataType="vm:GeneratorViewModel" Title="{Binding Title}" BackgroundColor="#F2F5FB">
+  <ScrollView><VerticalStackLayout Padding="22" Spacing="14" MaximumWidthRequest="820" HorizontalOptions="Fill">
+    <Label Text="{Binding Title}" FontSize="26" FontAttributes="Bold"/>
+    <Label Text="{Binding Subtitle}" TextColor="#53627B"/>
+    <Border BackgroundColor="White" StrokeThickness="0" Padding="20"><Border.StrokeShape><RoundRectangle CornerRadius="14"/></Border.StrokeShape>
+      <VerticalStackLayout Spacing="12">
+        <Label Text="Готовый профиль" FontAttributes="Bold"/>
+        <Picker x:Name="PresetPicker" Title="Выберите профиль" ItemsSource="{Binding Presets}" SelectedIndexChanged="PresetChanged"/>
+        <Label Text="Режим"/><Picker ItemsSource="{Binding Modes}" SelectedIndex="{Binding ModeIndex}"/>
+        <Label Text="Длина (1–256)"/>
+        <Entry x:Name="LengthInput" Keyboard="Numeric" Text="{Binding Length}" IsEnabled="{Binding IsCharacterMode}"/>
+        <Label Text="Количество (1–100)"/>
+        <Entry x:Name="CountInput" Keyboard="Numeric" Text="{Binding Count}"/>
+        <FlexLayout Wrap="Wrap" IsEnabled="{Binding IsRandomMode}">
+          <HorizontalStackLayout><CheckBox IsChecked="{Binding Lowercase}"/><Label Text="abc" VerticalOptions="Center" Margin="0,0,16,0"/></HorizontalStackLayout>
+          <HorizontalStackLayout><CheckBox IsChecked="{Binding Uppercase}"/><Label Text="ABC" VerticalOptions="Center" Margin="0,0,16,0"/></HorizontalStackLayout>
+          <HorizontalStackLayout><CheckBox IsChecked="{Binding Digits}"/><Label Text="123" VerticalOptions="Center" Margin="0,0,16,0"/></HorizontalStackLayout>
+          <HorizontalStackLayout><CheckBox IsChecked="{Binding Symbols}"/><Label Text="!@#" VerticalOptions="Center"/></HorizontalStackLayout>
+        </FlexLayout>
+        <VerticalStackLayout IsEnabled="{Binding IsCharacterMode}">
+    <HorizontalStackLayout><CheckBox IsChecked="{Binding ExcludeAmbiguous}"/><Label Text="Без похожих O0oIl1|" VerticalOptions="Center"/></HorizontalStackLayout>
+    <HorizontalStackLayout><CheckBox IsChecked="{Binding NoRepeatedCharacters}"/><Label Text="Без повторов" VerticalOptions="Center"/></HorizontalStackLayout>
+    <Label Text="Исключить символы"/><Entry Text="{Binding ExcludedCharacters}"/>
+  </VerticalStackLayout>
+  <Label Text="Свой алфавит"/><Entry Text="{Binding CustomAlphabet}" IsEnabled="{Binding IsCustomMode}"/>
+  <VerticalStackLayout IsEnabled="{Binding IsPhraseMode}" Spacing="8">
+    <Label Text="Слов во фразе (4–12)"/><Entry x:Name="WordsInput" Text="{Binding WordCount}" Keyboard="Numeric"/>
+    <Label Text="Разделитель (0–3 символа)"/><Entry Text="{Binding Separator}" MaxLength="3"/>
+  </VerticalStackLayout>
+        <Button Text="Сгенерировать" Clicked="GenerateClick"/>
+        <Grid ColumnDefinitions="*,*" ColumnSpacing="10"><Button Text="Копировать" Clicked="CopyClick"/><Button Grid.Column="1" Text="Экспорт TXT" Clicked="ExportClick"/></Grid>
+        <Button Text="Очистить" Command="{Binding ClearCommand}" BackgroundColor="#53627B"/>
+        <Button Text="Запомнить настройки" Clicked="SettingsClick" BackgroundColor="#53627B"/>
+        <Label Text="{Binding Status}" TextColor="#2457A6"/>
+        <Label Text="Результаты" FontAttributes="Bold"/>
+        <Editor Text="{Binding Output, Mode=OneWay}" IsReadOnly="True" HeightRequest="180" FontFamily="monospace"/>
+        <Label Text="{Binding Estimate}" FontSize="12" TextColor="#53627B"/>
+        <Label Text="История сеанса · до 50 паролей · кнопка «Очистить» удаляет историю"/>
+  <Editor Text="{Binding HistoryText, Mode=OneWay}" IsReadOnly="True" HeightRequest="130" FontFamily="monospace"/>
+      </VerticalStackLayout>
+    </Border>
+  </VerticalStackLayout></ScrollView>
+</ContentPage>

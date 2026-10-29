@@ -1,0 +1,119 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "HomeWork3 — WPF",
+      "type": "coreclr",
+      "request": "launch",
+      "program": "${workspaceFolder}/HomeWork3/prjPasswordCreator/wpfPasswordCreator/bin/Debug/net10.0-windows/wpfPasswordCreator.dll",
+      "cwd": "${workspaceFolder}/HomeWork3/prjPasswordCreator/wpfPasswordCreator",
+      "console": "internalConsole",
+      "stopAtEntry": false
+    },
+    {
+      "name": "HomeWork4 — WPF",
+      "type": "coreclr",
+      "request": "launch",
+      "program": "${workspaceFolder}/HomeWork4/prjPasswordCreator/wpfPasswordCreator/bin/Debug/net10.0-windows/wpfPasswordCreator.dll",
+      "cwd": "${workspaceFolder}/HomeWork4/prjPasswordCreator/wpfPasswordCreator",
+      "console": "internalConsole",
+      "stopAtEntry": false
+    },
+    {
+      "name": "HomeWork3 — WinForms",
+      "type": "coreclr",
+      "request": "launch",
+      "program": "${workspaceFolder}/HomeWork3/prjPasswordCreator/wfaPasswordCreator/bin/Debug/net10.0-windows/wfaPasswordCreator.dll",
+      "cwd": "${workspaceFolder}/HomeWork3/prjPasswordCreator/wfaPasswordCreator",
+      "console": "internalConsole",
+      "stopAtEntry": false
+    },
+    {
+      "name": "HomeWork4 — WinForms",
+      "type": "coreclr",
+      "request": "launch",
+      "program": "${workspaceFolder}/HomeWork4/prjPasswordCreator/wfaPasswordCreator/bin/Debug/net10.0-windows/wfaPasswordCreator.dll",
+      "cwd": "${workspaceFolder}/HomeWork4/prjPasswordCreator/wfaPasswordCreator",
+      "console": "internalConsole",
+      "stopAtEntry": false
+    },
+    {
+      "name": "HomeWork3 — Console",
+      "type": "coreclr",
+      "request": "launch",
+      "program": "${workspaceFolder}/HomeWork3/prjPasswordCreator/cnsPasswordCreator/bin/Debug/net10.0/cnsPasswordCreator.dll",
+      "cwd": "${workspaceFolder}/HomeWork3/prjPasswordCreator/cnsPasswordCreator",
+      "console": "integratedTerminal",
+      "stopAtEntry": false
+    },
+    {
+      "name": "HomeWork4 — Console",
+      "type": "coreclr",
+      "request": "launch",
+      "program": "${workspaceFolder}/HomeWork4/prjPasswordCreator/cnsPasswordCreator/bin/Debug/net10.0/cnsPasswordCreator.dll",
+      "cwd": "${workspaceFolder}/HomeWork4/prjPasswordCreator/cnsPasswordCreator",
+      "console": "integratedTerminal",
+      "stopAtEntry": false
+    },
+    {
+      "name": "HomeWork3 — WPF (build + run)",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "Build HomeWork3 (Desktop)",
+      "program": "${workspaceFolder}/HomeWork3/prjPasswordCreator/wpfPasswordCreator/bin/Debug/net10.0-windows/wpfPasswordCreator.dll",
+      "cwd": "${workspaceFolder}/HomeWork3/prjPasswordCreator/wpfPasswordCreator",
+      "console": "internalConsole",
+      "stopAtEntry": false
+    },
+    {
+      "name": "HomeWork4 — WPF (build + run)",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "Build HomeWork4 (Desktop)",
+      "program": "${workspaceFolder}/HomeWork4/prjPasswordCreator/wpfPasswordCreator/bin/Debug/net10.0-windows/wpfPasswordCreator.dll",
+      "cwd": "${workspaceFolder}/HomeWork4/prjPasswordCreator/wpfPasswordCreator",
+      "console": "internalConsole",
+      "stopAtEntry": false
+    },
+    {
+      "name": "HomeWork3 — WinForms (build + run)",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "Build HomeWork3 (Desktop)",
+      "program": "${workspaceFolder}/HomeWork3/prjPasswordCreator/wfaPasswordCreator/bin/Debug/net10.0-windows/wfaPasswordCreator.dll",
+      "cwd": "${workspaceFolder}/HomeWork3/prjPasswordCreator/wfaPasswordCreator",
+      "console": "internalConsole",
+      "stopAtEntry": false
+    },
+    {
+      "name": "HomeWork4 — WinForms (build + run)",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "Build HomeWork4 (Desktop)",
+      "program": "${workspaceFolder}/HomeWork4/prjPasswordCreator/wfaPasswordCreator/bin/Debug/net10.0-windows/wfaPasswordCreator.dll",
+      "cwd": "${workspaceFolder}/HomeWork4/prjPasswordCreator/wfaPasswordCreator",
+      "console": "internalConsole",
+      "stopAtEntry": false
+    },
+    {
+      "name": "HomeWork3 — Console (build + run)",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "Build HomeWork3 (Desktop)",
+      "program": "${workspaceFolder}/HomeWork3/prjPasswordCreator/cnsPasswordCreator/bin/Debug/net10.0/cnsPasswordCreator.dll",
+      "cwd": "${workspaceFolder}/HomeWork3/prjPasswordCreator/cnsPasswordCreator",
+      "console": "integratedTerminal",
+      "stopAtEntry": false
+    },
+    {
+      "name": "HomeWork4 — Console (build + run)",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "Build HomeWork4 (Desktop)",
+      "program": "${workspaceFolder}/HomeWork4/prjPasswordCreator/cnsPasswordCreator/bin/Debug/net10.0/cnsPasswordCreator.dll",
+      "cwd": "${workspaceFolder}/HomeWork4/prjPasswordCreator/cnsPasswordCreator",
+      "console": "integratedTerminal",
+      "stopAtEntry": false
+    }
+  ]
+}
