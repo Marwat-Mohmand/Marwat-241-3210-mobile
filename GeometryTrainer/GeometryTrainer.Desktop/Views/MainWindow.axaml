@@ -1,0 +1,133 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:GeometryTrainer.Desktop.ViewModels"
+        xmlns:views="using:GeometryTrainer.Desktop.Views"
+        x:Class="GeometryTrainer.Desktop.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Title="Геометрия — периметр и площадь прямоугольника"
+        Width="1180" Height="850" MinWidth="800" MinHeight="620"
+        WindowStartupLocation="CenterScreen">
+  <Grid RowDefinitions="Auto,*">
+    <Border Background="White" BorderBrush="#E5EAF1" BorderThickness="0,0,0,1" Padding="30,14">
+      <Grid ColumnDefinitions="Auto,*,Auto">
+        <Border Background="#EBF2FF" CornerRadius="13" Width="46" Height="46">
+          <Path Data="M 11,13 L 34,13 L 34,32 L 11,32 Z M 11,27 L 16,27 L 16,32"
+                Stroke="#3478F6" StrokeThickness="2" Width="46" Height="46" />
+        </Border>
+        <StackPanel Grid.Column="1" Margin="13,0,0,0" Spacing="3" VerticalAlignment="Center">
+          <TextBlock Text="Геометрия · просто" FontSize="18" FontWeight="Bold" />
+          <TextBlock Text="Исследуй. Изменяй. Понимай." Classes="caption" />
+        </StackPanel>
+        <Button Grid.Column="2" Content="?  Как заниматься" Classes="secondary" Command="{Binding ShowHelpCommand}" VerticalAlignment="Center" />
+      </Grid>
+    </Border>
+    <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+      <StackPanel Margin="30,22,30,24" Spacing="22" MaxWidth="1400">
+        <Grid ColumnDefinitions="*,Auto">
+          <StackPanel Spacing="8">
+            <TextBlock Text="Периметр и площадь" FontSize="30" FontWeight="Bold" />
+            <TextBlock Text="Меняй стороны прямоугольника и наблюдай, как работают формулы." Classes="muted" TextWrapping="Wrap" />
+          </StackPanel>
+          <Border Grid.Column="1" Background="#EAF5DF" CornerRadius="20" Padding="14,8" VerticalAlignment="Top" Margin="14,0,0,0">
+            <TextBlock Text="●  Режим обучения" Foreground="#47732B" FontSize="12" FontWeight="SemiBold" />
+          </Border>
+        </Grid>
+        <Grid ColumnDefinitions="*,22,310" RowDefinitions="Auto,20,Auto">
+          <Border Classes="card" Padding="22,20">
+            <Grid RowDefinitions="Auto,Auto,*,Auto">
+              <Grid ColumnDefinitions="*,Auto">
+                <TextBlock Text="Твоя фигура" Classes="section" />
+                <Border Grid.Column="1" Background="#EEF4FF" CornerRadius="8" Padding="10,4">
+                  <TextBlock Text="{Binding DimensionsText}" Foreground="#3478F6" FontWeight="SemiBold" />
+                </Border>
+              </Grid>
+              <TextBlock Grid.Row="1" Text="Одна клетка — одна единица длины" Classes="caption" Margin="0,7,0,0" />
+              <views:RectangleGrid Grid.Row="2" SideA="{Binding RectangleWidth}" SideB="{Binding RectangleHeight}"
+                                   Height="360" Focusable="True" KeyDown="GridKeyDown"
+                                   AutomationProperties.Name="Прямоугольник на сетке. Стрелки вправо и влево меняют ширину, вверх и вниз — высоту." />
+              <Border Grid.Row="3" Background="#F5F8FD" CornerRadius="10" Padding="12,10">
+                <Grid ColumnDefinitions="*,Auto">
+                  <TextBlock Text="{Binding CellCountText}" Foreground="#536985" FontSize="12" />
+                  <TextBlock Grid.Column="1" Text="Сетка 12 × 12" Classes="caption" />
+                </Grid>
+              </Border>
+            </Grid>
+          </Border>
+          <Border Grid.Column="2" Classes="card" Padding="23,22">
+            <StackPanel Spacing="10">
+              <TextBlock Text="Размеры прямоугольника" Classes="section" TextWrapping="Wrap" />
+              <TextBlock Text="Двигай ползунки или вводи числа." Classes="caption" TextWrapping="Wrap" />
+              <Grid ColumnDefinitions="*,96">
+                <StackPanel Spacing="5" VerticalAlignment="Center">
+                  <TextBlock Text="Ширина" FontWeight="SemiBold" /><TextBlock Text="Сторона a" Classes="caption" />
+                </StackPanel>
+                <NumericUpDown Grid.Column="1" Minimum="1" Maximum="12" Increment="1" FormatString="0"
+                               AllowSpin="True" Value="{Binding RectangleWidth, Mode=TwoWay}"
+                               AutomationProperties.Name="Ширина прямоугольника" />
+              </Grid>
+              <Slider Minimum="1" Maximum="12" TickFrequency="1" IsSnapToTickEnabled="True"
+                      Value="{Binding RectangleWidth, Mode=TwoWay}" AutomationProperties.Name="Изменить ширину" />
+              <Grid ColumnDefinitions="*,96">
+                <StackPanel Spacing="5" VerticalAlignment="Center">
+                  <TextBlock Text="Высота" FontWeight="SemiBold" /><TextBlock Text="Сторона b" Classes="caption" />
+                </StackPanel>
+                <NumericUpDown Grid.Column="1" Minimum="1" Maximum="12" Increment="1" FormatString="0"
+                               AllowSpin="True" Value="{Binding RectangleHeight, Mode=TwoWay}"
+                               AutomationProperties.Name="Высота прямоугольника" />
+              </Grid>
+              <Slider Minimum="1" Maximum="12" TickFrequency="1" IsSnapToTickEnabled="True"
+                      Value="{Binding RectangleHeight, Mode=TwoWay}" AutomationProperties.Name="Изменить высоту" />
+              <Border Height="1" Background="#E9EDF3" />
+              <Button Content="↔  Поменять стороны" Command="{Binding SwapCommand}" Classes="secondary" HorizontalAlignment="Stretch" />
+              <Button Content="Попробовать квадрат 4 × 4" Command="{Binding SquareCommand}" Classes="secondary" HorizontalAlignment="Stretch" FontSize="12" />
+              <Button Content="Начать заново" Command="{Binding ResetCommand}" Classes="primary" HorizontalAlignment="Stretch" />
+            </StackPanel>
+          </Border>
+          <Grid Grid.Row="2" ColumnDefinitions="*,16,*">
+            <Border Classes="card" Padding="20,18">
+              <StackPanel Spacing="7">
+                <TextBlock Text="ПЕРИМЕТР" Classes="caption" FontWeight="SemiBold" />
+                <StackPanel Orientation="Horizontal" Spacing="8">
+                  <TextBlock Text="{Binding Perimeter}" FontSize="35" FontWeight="Bold" Foreground="#3478F6" />
+                  <TextBlock Text="ед." Classes="muted" VerticalAlignment="Bottom" Margin="0,0,0,7" />
+                </StackPanel>
+                <TextBlock Text="P = 2 × (a + b)" FontWeight="SemiBold" />
+                <TextBlock Text="{Binding PerimeterCalculation}" Classes="caption" />
+              </StackPanel>
+            </Border>
+            <Border Grid.Column="2" Classes="card" Padding="20,18">
+              <StackPanel Spacing="7">
+                <TextBlock Text="ПЛОЩАДЬ" Classes="caption" FontWeight="SemiBold" />
+                <StackPanel Orientation="Horizontal" Spacing="8">
+                  <TextBlock Text="{Binding Area}" FontSize="35" FontWeight="Bold" Foreground="#36875F" />
+                  <TextBlock Text="ед.²" Classes="muted" VerticalAlignment="Bottom" Margin="0,0,0,7" />
+                </StackPanel>
+                <TextBlock Text="S = a × b" FontWeight="SemiBold" />
+                <TextBlock Text="{Binding AreaCalculation}" Classes="caption" />
+              </StackPanel>
+            </Border>
+          </Grid>
+          <Border Grid.Column="2" Grid.Row="2" Background="#EDF4FF" CornerRadius="18" Padding="22,19">
+            <StackPanel Spacing="9">
+              <TextBlock Text="Маленькое открытие" FontWeight="SemiBold" Foreground="#3864A3" />
+              <TextBlock Text="{Binding ShapeDescription}" TextWrapping="Wrap" Foreground="#536985" FontSize="13" />
+              <TextBlock Text="Периметр — длина границы. Площадь — число клеток внутри." TextWrapping="Wrap" Classes="caption" />
+            </StackPanel>
+          </Border>
+        </Grid>
+        <TextBlock Text="Подсказка: выбери сетку и используй клавиши ← → ↑ ↓.  F1 — помощь." Classes="caption" TextWrapping="Wrap" />
+      </StackPanel>
+    </ScrollViewer>
+    <Border Grid.RowSpan="2" Background="#880F1D35" IsVisible="{Binding IsHelpOpen}">
+      <Border Classes="card" Padding="30" Margin="26" MaxWidth="520" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel Spacing="16">
+          <TextBlock Text="Как заниматься" FontSize="24" FontWeight="Bold" />
+          <TextBlock Text="1. Выбери ширину и высоту от 1 до 12.&#10;2. Посчитай клетки внутри фигуры — это площадь.&#10;3. Сложи длины четырёх сторон — это периметр.&#10;4. Сравни свой расчёт с формулами под сеткой." TextWrapping="Wrap" LineHeight="25" />
+          <TextBlock Text="Стрелки работают, когда выбрана сетка. Угловые точки пока обозначают вершины фигуры; размеры меняются с помощью ползунков и числовых полей." Classes="muted" TextWrapping="Wrap" />
+          <Button Content="Понятно, начинаем!" Command="{Binding CloseHelpCommand}" Classes="primary" HorizontalAlignment="Stretch" />
+          <TextBlock Text="Esc — закрыть подсказку" Classes="caption" HorizontalAlignment="Center" />
+        </StackPanel>
+      </Border>
+    </Border>
+  </Grid>
+</Window>

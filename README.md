@@ -2,6 +2,10 @@
 
 Мохманд Марватулла 241-3210
 
+## GeometryTrainer — университетский проект №36
+
+Отдельный проект в [GeometryTrainer](GeometryTrainer/README.md): C# .NET 10, Avalonia XAML, независимая библиотека и тесты. Реализована только Phase 1 — прямоугольник на сетке, изменение размеров и вычисление периметра/площади. Для запуска в VS Code выберите **GeometryTrainer — build + run** или **GeometryTrainer — fast launch**. Объяснение кода на простом английском: [LEARNING.md](GeometryTrainer/LEARNING.md).
+
 ## Генератор паролей — HomeWork3 и HomeWork4
 
 Работы выполнены отдельно. Каждый каталог содержит самостоятельное решение `prjPasswordCreator` с библиотекой, Console, WinForms, WPF, MAUI и автоматическими проверками.

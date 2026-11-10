@@ -114,6 +114,25 @@
       "cwd": "${workspaceFolder}/HomeWork4/prjPasswordCreator/cnsPasswordCreator",
       "console": "integratedTerminal",
       "stopAtEntry": false
+    },
+    {
+      "name": "GeometryTrainer — build + run",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "Build GeometryTrainer",
+      "program": "${workspaceFolder}/GeometryTrainer/GeometryTrainer.Desktop/bin/Debug/net10.0/GeometryTrainer.Desktop.dll",
+      "cwd": "${workspaceFolder}/GeometryTrainer/GeometryTrainer.Desktop",
+      "console": "internalConsole",
+      "stopAtEntry": false
+    },
+    {
+      "name": "GeometryTrainer — fast launch",
+      "type": "coreclr",
+      "request": "launch",
+      "program": "${workspaceFolder}/GeometryTrainer/GeometryTrainer.Desktop/bin/Debug/net10.0/GeometryTrainer.Desktop.dll",
+      "cwd": "${workspaceFolder}/GeometryTrainer/GeometryTrainer.Desktop",
+      "console": "internalConsole",
+      "stopAtEntry": false
     }
   ]
 }

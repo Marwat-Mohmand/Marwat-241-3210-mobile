@@ -1,0 +1,28 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build GeometryTrainer",
+      "type": "process",
+      "command": "dotnet",
+      "args": ["build", "${workspaceFolder}/GeometryTrainer.Desktop/GeometryTrainer.Desktop.csproj", "--configfile", "${workspaceFolder}/NuGet.Config", "-m:1", "-nr:false", "-p:UseSharedCompilation=false", "--nologo"],
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": { "MSBuildEnableWorkloadResolver": "false", "DOTNET_CLI_WORKLOAD_UPDATE_NOTIFY_DISABLE": "true" }
+      },
+      "problemMatcher": "$msCompile",
+      "group": { "kind": "build", "isDefault": true }
+    },
+    {
+      "label": "Test GeometryTrainer",
+      "type": "process",
+      "command": "dotnet",
+      "args": ["test", "${workspaceFolder}/GeometryTrainer.Tests/GeometryTrainer.Tests.csproj", "-m:1", "-nr:false", "-p:UseSharedCompilation=false", "--nologo"],
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": { "MSBuildEnableWorkloadResolver": "false", "DOTNET_CLI_WORKLOAD_UPDATE_NOTIFY_DISABLE": "true" }
+      },
+      "problemMatcher": "$msCompile"
+    }
+  ]
+}

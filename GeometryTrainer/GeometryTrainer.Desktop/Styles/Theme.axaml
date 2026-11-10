@@ -1,0 +1,33 @@
+<Styles xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Style Selector="Window">
+    <Setter Property="FontFamily" Value="avares://Avalonia.Fonts.Inter/Assets#Inter" />
+    <Setter Property="FontSize" Value="14" /><Setter Property="Foreground" Value="#1C2B46" />
+    <Setter Property="Background" Value="#F4F6FA" />
+  </Style>
+  <Style Selector="Border.card">
+    <Setter Property="Background" Value="White" /><Setter Property="CornerRadius" Value="20" />
+    <Setter Property="BorderBrush" Value="#E5EAF1" /><Setter Property="BorderThickness" Value="1" />
+  </Style>
+  <Style Selector="TextBlock.muted"><Setter Property="Foreground" Value="#738197" /></Style>
+  <Style Selector="TextBlock.caption"><Setter Property="Foreground" Value="#738197" /><Setter Property="FontSize" Value="12" /></Style>
+  <Style Selector="TextBlock.section"><Setter Property="FontSize" Value="17" /><Setter Property="FontWeight" Value="SemiBold" /></Style>
+  <Style Selector="Button">
+    <Setter Property="CornerRadius" Value="11" /><Setter Property="Padding" Value="16,11" /><Setter Property="Cursor" Value="Hand" />
+  </Style>
+  <Style Selector="Button.primary">
+    <Setter Property="Background" Value="#B9ED62" /><Setter Property="Foreground" Value="#213811" />
+    <Setter Property="FontWeight" Value="SemiBold" /><Setter Property="HorizontalContentAlignment" Value="Center" />
+  </Style>
+  <Style Selector="Button.primary:pointerover /template/ ContentPresenter">
+    <Setter Property="Background" Value="#A8DF4F" /><Setter Property="Foreground" Value="#213811" />
+  </Style>
+  <Style Selector="Button.secondary">
+    <Setter Property="Background" Value="#EEF3FA" /><Setter Property="Foreground" Value="#385274" />
+    <Setter Property="HorizontalContentAlignment" Value="Center" />
+  </Style>
+  <Style Selector="Slider"><Setter Property="Foreground" Value="#3975EF" /></Style>
+  <Style Selector="NumericUpDown">
+    <Setter Property="CornerRadius" Value="10" /><Setter Property="Background" Value="#F6F8FC" />
+    <Setter Property="BorderBrush" Value="#DFE6F0" />
+  </Style>
+</Styles>

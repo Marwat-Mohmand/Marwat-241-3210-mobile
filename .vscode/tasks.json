@@ -51,6 +51,50 @@
         "kind": "build",
         "isDefault": true
       }
+    },
+    {
+      "label": "Build GeometryTrainer",
+      "type": "process",
+      "command": "dotnet",
+      "args": [
+        "build",
+        "${workspaceFolder}/GeometryTrainer/GeometryTrainer.Desktop/GeometryTrainer.Desktop.csproj",
+        "--configfile",
+        "${workspaceFolder}/GeometryTrainer/NuGet.Config",
+        "-m:1",
+        "-nr:false",
+        "-p:UseSharedCompilation=false",
+        "--nologo"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/GeometryTrainer",
+        "env": {
+          "MSBuildEnableWorkloadResolver": "false",
+          "DOTNET_CLI_WORKLOAD_UPDATE_NOTIFY_DISABLE": "true"
+        }
+      },
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "Test GeometryTrainer",
+      "type": "process",
+      "command": "dotnet",
+      "args": [
+        "test",
+        "${workspaceFolder}/GeometryTrainer/GeometryTrainer.Tests/GeometryTrainer.Tests.csproj",
+        "-m:1",
+        "-nr:false",
+        "-p:UseSharedCompilation=false",
+        "--nologo"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/GeometryTrainer",
+        "env": {
+          "MSBuildEnableWorkloadResolver": "false",
+          "DOTNET_CLI_WORKLOAD_UPDATE_NOTIFY_DISABLE": "true"
+        }
+      },
+      "problemMatcher": "$msCompile"
     }
   ]
 }
