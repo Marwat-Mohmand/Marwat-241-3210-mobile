@@ -60,8 +60,10 @@ public sealed class MainWindowViewModel : ViewModelBase
 
     private void SetDimensions(int width, int height)
     {
-        if (width is < 1 or > GridSize || height is < 1 or > GridSize)
+        if (width is < 1 or > GridSize)
             throw new ArgumentOutOfRangeException(nameof(width), "Стороны должны быть от 1 до 12 единиц.");
+        if (height is < 1 or > GridSize)
+            throw new ArgumentOutOfRangeException(nameof(height), "Стороны должны быть от 1 до 12 единиц.");
         rectangle.Resize(width, height);
     }
 

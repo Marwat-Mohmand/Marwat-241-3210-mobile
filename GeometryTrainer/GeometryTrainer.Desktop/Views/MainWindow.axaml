@@ -61,7 +61,8 @@
                 <StackPanel Spacing="5" VerticalAlignment="Center">
                   <TextBlock Text="Ширина" FontWeight="SemiBold" /><TextBlock Text="Сторона a" Classes="caption" />
                 </StackPanel>
-                <NumericUpDown Grid.Column="1" Minimum="1" Maximum="12" Increment="1" FormatString="0"
+                <NumericUpDown x:Name="WidthInput" Grid.Column="1" Minimum="1" Maximum="12" Increment="1"
+                               FormatString="0" ParsingNumberStyle="Integer" LostFocus="DimensionLostFocus"
                                AllowSpin="True" Value="{Binding RectangleWidth, Mode=TwoWay}"
                                AutomationProperties.Name="Ширина прямоугольника" />
               </Grid>
@@ -71,7 +72,8 @@
                 <StackPanel Spacing="5" VerticalAlignment="Center">
                   <TextBlock Text="Высота" FontWeight="SemiBold" /><TextBlock Text="Сторона b" Classes="caption" />
                 </StackPanel>
-                <NumericUpDown Grid.Column="1" Minimum="1" Maximum="12" Increment="1" FormatString="0"
+                <NumericUpDown x:Name="HeightInput" Grid.Column="1" Minimum="1" Maximum="12" Increment="1"
+                               FormatString="0" ParsingNumberStyle="Integer" LostFocus="DimensionLostFocus"
                                AllowSpin="True" Value="{Binding RectangleHeight, Mode=TwoWay}"
                                AutomationProperties.Name="Высота прямоугольника" />
               </Grid>
